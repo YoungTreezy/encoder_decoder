@@ -7,6 +7,12 @@ from cryptography.fernet import Fernet
 from random import randint
 
 
+def write_key():
+    key = Fernet.generate_key()
+    with open('crypto_key', 'wb') as key_file:
+        key_file.write(key)
+
+
 def load_key():
     return open('crypto_key', 'rb').read()
 
